@@ -1,4 +1,4 @@
-import { getFeedsApi } from '@api';
+import { getFeedsApi, getOrdersApi } from '@api';
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
 
@@ -6,13 +6,22 @@ type FeedState = {
   orders: TOrder[];
   total: number;
   totalToday: number;
+  isOrderLoading: boolean;
+  error: undefined | string;
 };
 
 const initialState: FeedState = {
   orders: [],
   total: 0,
-  totalToday: 0
+  totalToday: 0,
+  isOrderLoading: true,
+  error: undefined
 };
+
+// export const fetchUserOrder = createAsyncThunk(
+//   'orders/user/get',
+//   async () => await getOrdersApi()
+// );
 
 export const fetchOrderLoad = createAsyncThunk(
   'orders/all/get',
@@ -20,7 +29,7 @@ export const fetchOrderLoad = createAsyncThunk(
 );
 
 export const orderSlice = createSlice({
-  name: 'feed',
+  name: 'orders',
   initialState,
   reducers: {
     setIsOrder: (state, action: PayloadAction<TOrder[]>) => {
@@ -31,12 +40,16 @@ export const orderSlice = createSlice({
     },
     setTotalOrderToday: (state, action: PayloadAction<number>) => {
       state.totalToday = action.payload;
+    },
+    setLoadingOrder: (state, action: PayloadAction<boolean>) => {
+      state.isOrderLoading = action.payload;
     }
   },
   selectors: {
-    getOrders: (state) => state.orders,
-    getTotal: (state) => state.total,
-    getTotalToday: (state) => state.totalToday
+    fetchOrders: (state) => state.orders,
+    fetchTotal: (state) => state.total,
+    fetchTotalToday: (state) => state.totalToday,
+    fetchLoadingOrder: (state: FeedState): boolean => state.isOrderLoading
   },
   extraReducers: (builder) => {
     builder
@@ -55,12 +68,31 @@ export const orderSlice = createSlice({
         state.total = 0;
         state.totalToday = 0;
       });
+    // .addCase(fetchUserOrder.pending, (state: FeedState) => {
+    //   state.isOrderLoading = true;
+    //   state.error = undefined;
+    // })
+    // .addCase(fetchUserOrder.fulfilled, (state, action) => {
+    //   state.isOrderLoading = false;
+    //   state.orders = action.payload;
+    //   state.error = undefined;
+    // })
+    // .addCase(fetchUserOrder.rejected, (state, action) => {
+    //   state.isOrderLoading = false;
+    //   state.error = action.error.message;
+    //   state.orders = [];
+    // });
   }
 });
 
-export const { setIsOrder, setTotalOrder, setTotalOrderToday } =
-  orderSlice.actions;
+export const {
+  setIsOrder,
+  setTotalOrder,
+  setTotalOrderToday,
+  setLoadingOrder
+} = orderSlice.actions;
 
-export const { getOrders, getTotal, getTotalToday } = orderSlice.selectors;
+export const { fetchOrders, fetchTotal, fetchTotalToday, fetchLoadingOrder } =
+  orderSlice.selectors;
 
 export const orderReducer = orderSlice.reducer;

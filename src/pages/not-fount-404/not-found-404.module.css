@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.p404 {
+  text-align: center;
+  font-size: 100px;
+  font-weight: bold;
+  transform: rotate(-90deg);
+  padding: 0;
+}
+
+.container_gradient {
+  background: linear-gradient(
+    45deg,
+    rgba(198, 35, 158, 1) 0%,
+    rgba(69, 156, 252, 1) 100%
+  );
+  animation: gradient 15s ease-in-out infinite;
+  background-repeat: no-repeat;
+  background-size: 400%;
+  height: 300px;
+  width: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

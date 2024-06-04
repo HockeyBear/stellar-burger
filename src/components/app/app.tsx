@@ -17,6 +17,9 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import { useDispatch } from '../../services/store';
 import { fetchIngredients } from '../../services/slices/ingredientsSlice';
+import { fetchOrderLoad } from '../../services/slices/orderSlice';
+import { verifyUser } from '../../services/slices/userSlice';
+import { Auth, UnAuth } from '../protected-route/protectedRoute';
 // import { ProtectedRoute } from '../protected-route/protectedRoute';
 
 const App = () => {
@@ -26,6 +29,8 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchIngredients());
+    dispatch(fetchOrderLoad());
+    dispatch(verifyUser());
   }, [dispatch]);
 
   const background = location.state && location.state.background;
@@ -42,13 +47,25 @@ const App = () => {
         <Route path='/ingredients:id' element={<IngredientDetails />} />
         <Route path='/feed' element={<Feed />} />
         <Route path='/feed:number' element={<OrderInfo />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/forgot-password' element={<ForgotPassword />} />
-        <Route path='/reset-password' element={<ResetPassword />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/profile/orders' element={<ProfileOrders />} />
-        <Route path='/profile/orders/:number' element={<OrderInfo />} />
+        <Route path='/login' element={<UnAuth element={<Login />} />} />
+        <Route path='/register' element={<UnAuth element={<Register />} />} />
+        <Route
+          path='/forgot-password'
+          element={<UnAuth element={<ForgotPassword />} />}
+        />
+        <Route
+          path='/reset-password'
+          element={<UnAuth element={<ResetPassword />} />}
+        />
+        <Route path='/profile' element={<Auth element={<Profile />} />} />
+        <Route
+          path='/profile/orders'
+          element={<Auth element={<ProfileOrders />} />}
+        />
+        <Route
+          path='/profile/orders/:number'
+          element={<Auth element={<OrderInfo />} />}
+        />
         <Route path='*' element={<NotFound404 />} />
       </Routes>
       {background && (

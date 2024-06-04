@@ -20,7 +20,7 @@ export const initialState: ConstructorState = {
 };
 
 export const constructorSlice = createSlice({
-  name: 'constructor',
+  name: 'constructorBuilder',
   initialState,
   reducers: {
     addIngredients: {
@@ -69,12 +69,15 @@ export const constructorSlice = createSlice({
     clearConstructor: (state: ConstructorState) => (state = initialState)
   },
   selectors: {
-    selectConstructor: (state) => state.constructor
+    selectConstructor: (state) => state
   }
 });
 
 export const constructorReducer = constructorSlice.reducer;
-export const selectConstructor = (state: { constructor: ConstructorState }) =>
-  state.constructor;
-export const { addIngredients, removeIngredient, moveIngredient } =
-  constructorSlice.actions;
+export const { selectConstructor } = constructorSlice.selectors;
+export const {
+  addIngredients,
+  removeIngredient,
+  moveIngredient,
+  clearConstructor
+} = constructorSlice.actions;
