@@ -21,16 +21,6 @@ const initialState: AuthenticationState = {
   isAuthenticationChecked: false
 };
 
-// export const registerUser = createAsyncThunk(
-//   'register/registerUser',
-//   async (data: TRegisterData) => {
-//     const response = await registerUserApi(data);
-//     setCookie('accessToken', response.accessToken);
-//     localStorage.setItem('refreshToken', response.refreshToken);
-//     return response.user;
-//   }
-// );
-
 export const registerUser = createAsyncThunk(
   'register/register',
   async (data: TRegisterData, { rejectWithValue }) => {

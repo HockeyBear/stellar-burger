@@ -20,7 +20,6 @@ import { fetchIngredients } from '../../services/slices/ingredientsSlice';
 import { fetchOrderLoad } from '../../services/slices/orderSlice';
 import { verifyUser } from '../../services/slices/userSlice';
 import { Auth, UnAuth } from '../protected-route/protectedRoute';
-// import { ProtectedRoute } from '../protected-route/protectedRoute';
 
 const App = () => {
   const location = useLocation();
@@ -46,7 +45,7 @@ const App = () => {
         <Route path='/' element={<ConstructorPage />} />
         <Route path='/ingredients:id' element={<IngredientDetails />} />
         <Route path='/feed' element={<Feed />} />
-        <Route path='/feed:number' element={<OrderInfo />} />
+        <Route path='/feed/:number' element={<OrderInfo />} />
         <Route path='/login' element={<UnAuth element={<Login />} />} />
         <Route path='/register' element={<UnAuth element={<Register />} />} />
         <Route
