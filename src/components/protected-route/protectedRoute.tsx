@@ -1,15 +1,36 @@
-// import { Children, ReactElement } from 'react';
-// import { Navigate, Outlet } from 'react-router';
-// import { useSelector } from 'src/services/store';
+import { Navigate, useLocation } from 'react-router-dom';
+import { getAuthChecked, getUser } from '../../services/slices/userSlice';
+import { useSelector } from '../../services/store';
 
-// type ProtectedProps = {
-//   unAuth?: boolean;
-//   children: ReactElement;
-// };
+type ProtectedProps = {
+  unAuth?: boolean;
+  element: JSX.Element;
+};
 
-// export const ProtectedRoute = ({
-//   unAuth = false,
-//   children
-// }: ProtectedProps): ReactElement => {
-//   const isAuthenticated = useSelector((state) => state.isAuthenticated);
-// };
+const ProtectedRoute = ({
+  unAuth = false,
+  element
+}: ProtectedProps): JSX.Element => {
+  const isAuthenticated = useSelector(getAuthChecked);
+  const user = useSelector(getUser);
+  const location = useLocation();
+
+  if (!isAuthenticated) {
+    return <div>Загрузка...</div>;
+  }
+  if (unAuth && user) {
+    const { from } = location.state || { from: { pathname: '/' } };
+    return <Navigate to={from} />;
+  }
+
+  if (!unAuth && !user) {
+    return <Navigate to={'/login'} state={{ from: location }} />;
+  }
+
+  return element;
+};
+
+export const Auth = ProtectedRoute;
+export const UnAuth = ({ element }: { element: JSX.Element }) => (
+  <ProtectedRoute unAuth element={element} />
+);
