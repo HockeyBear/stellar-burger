@@ -6,7 +6,7 @@ import {
 } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
 import { RootState } from '../store';
-import { getIngredientsApi } from '@api';
+import { getIngredientsApi } from '../../utils/burger-api';
 
 type IngredientsState = {
   isIngredientsLoading: boolean;

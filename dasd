@@ -1,0 +1,41 @@
+[33m4c711a3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mreview[m[33m, [m[1;31morigin/review[m[33m)[m HEAD@{0}: commit: Review Tests cypress & jest
+[33me4de411[m HEAD@{1}: commit: ver 3
+[33m376e4ba[m HEAD@{2}: commit: ver 2
+[33m9cfd0a1[m HEAD@{3}: checkout: moving from main to review
+[33m3a2ba49[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{4}: checkout: moving from review to main
+[33m9cfd0a1[m HEAD@{5}: checkout: moving from main to review
+[33m3a2ba49[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{6}: reset: moving to HEAD~1
+[33m9cfd0a1[m HEAD@{7}: checkout: moving from main to main
+[33m9cfd0a1[m HEAD@{8}: checkout: moving from main to main
+[33m9cfd0a1[m HEAD@{9}: checkout: moving from review to main
+[33m9cfd0a1[m HEAD@{10}: checkout: moving from main to review
+[33m9cfd0a1[m HEAD@{11}: reset: moving to 9cfd0a1a8bf03cf08061f48f059d6666cb27fdca
+[33m9cfd0a1[m HEAD@{12}: checkout: moving from review to main
+[33m9cfd0a1[m HEAD@{13}: checkout: moving from main to review
+[33m9cfd0a1[m HEAD@{14}: reset: moving to 9cfd0a1a8bf03cf08061f48f059d6666cb27fdca
+[33m1c0b3e6[m HEAD@{15}: checkout: moving from review to main
+[33m9cfd0a1[m HEAD@{16}: checkout: moving from main to review
+[33m1c0b3e6[m HEAD@{17}: revert: Revert "ready review"
+[33m9cfd0a1[m HEAD@{18}: checkout: moving from review to main
+[33m9cfd0a1[m HEAD@{19}: checkout: moving from main to review
+[33m9cfd0a1[m HEAD@{20}: reset: moving to HEAD@{11}
+[33m9cfd0a1[m HEAD@{21}: checkout: moving from review to main
+[33m9cfd0a1[m HEAD@{22}: checkout: moving from review to review
+[33m9cfd0a1[m HEAD@{23}: reset: moving to HEAD@{8}
+[33m9cfd0a1[m HEAD@{24}: checkout: moving from review to review
+[33m9cfd0a1[m HEAD@{25}: checkout: moving from review to review
+[33m9cfd0a1[m HEAD@{26}: checkout: moving from review to review
+[33m9cfd0a1[m HEAD@{27}: checkout: moving from review to review
+[33m9cfd0a1[m HEAD@{28}: checkout: moving from review to review
+[33m9cfd0a1[m HEAD@{29}: checkout: moving from review to review
+[33m9cfd0a1[m HEAD@{30}: reset: moving to 9cfd0a1a8bf03cf08061f48f059d6666cb27fdca
+[33m117f35b[m HEAD@{31}: revert: Revert "ready review"
+[33m9cfd0a1[m HEAD@{32}: commit: ready review
+[33m3a2ba49[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{33}: commit: not done
+[33m56759fb[m HEAD@{34}: reset: moving to 56759fbcfb0c64f891a53651eecffc79bc405ea1
+[33m6ef51aa[m HEAD@{35}: commit: not complited
+[33m56759fb[m HEAD@{36}: reset: moving to 56759fbcfb0c64f891a53651eecffc79bc405ea1
+[33m7cfae7c[m HEAD@{37}: commit: not complited
+[33m56759fb[m HEAD@{38}: checkout: moving from main to review
+[33m76d3c59[m HEAD@{40}: commit (initial): Initial commit
+[33m9696603[m HEAD@{42}: clone: from github.com:HockeyBear/stellar-burger.git

@@ -8,11 +8,17 @@ import {
 import { ingredientsReducer } from './slices/ingredientsSlice';
 import { constructorReducer } from './slices/constructorSlice';
 import { orderReducer } from './slices/orderSlice';
+import { userAuthReducer } from './slices/userSlice';
+import { makeOrderReducer } from './slices/makeOrderSlice';
+import { orderUserReducer } from './slices/orderUserSlice';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   ingredients: ingredientsReducer,
-  constructor: constructorReducer,
-  feed: orderReducer
+  constructorBuilder: constructorReducer, // конструктор рзарезервирован надо поменять ему имя (особенно для названий полей объектов)
+  orders: orderReducer,
+  ordersUser: orderUserReducer,
+  userAuth: userAuthReducer,
+  makeOrder: makeOrderReducer
 }); // Заменить на импорт настоящего редьюсера
 
 const store = configureStore({
